@@ -1,0 +1,445 @@
+/* Стили для компонента скриншотов СОЛИ */
+
+.screenshot-container {
+  position: relative;
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--ifm-background-surface-color);
+  border-radius: var(--ifm-border-radius-lg);
+  overflow: hidden;
+  transition: all var(--ifm-transition-fast) ease;
+}
+
+/* Размеры изображений */
+.screenshot-small {
+  max-width: 400px;
+}
+
+.screenshot-medium {
+  max-width: 600px;
+}
+
+.screenshot-large {
+  max-width: 800px;
+}
+
+.screenshot-full {
+  width: 100%;
+  max-width: none;
+}
+
+/* Выравнивание */
+.screenshot-align-left {
+  align-self: flex-start;
+}
+
+.screenshot-align-center {
+  align-self: center;
+}
+
+.screenshot-align-right {
+  align-self: flex-end;
+}
+
+/* Декоративные эффекты */
+.screenshot-shadow {
+  box-shadow: var(--ifm-global-shadow-md);
+}
+
+.screenshot-shadow:hover {
+  box-shadow: var(--ifm-global-shadow-tl);
+  transform: translateY(-2px);
+}
+
+.screenshot-border {
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.screenshot-zoomable {
+  cursor: pointer;
+}
+
+.screenshot-zoomable:hover .zoom-indicator {
+  opacity: 1;
+}
+
+/* Обертка изображения */
+.screenshot-wrapper {
+  position: relative;
+  overflow: hidden;
+  background: var(--ifm-color-emphasis-100);
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Основное изображение */
+.screenshot-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: all var(--ifm-transition-fast) ease;
+  object-fit: contain;
+}
+
+.screenshot-image.loading {
+  opacity: 0;
+}
+
+.screenshot-zoomable .screenshot-image:hover {
+  transform: scale(1.02);
+}
+
+/* Загрузочный экран */
+.screenshot-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--ifm-color-emphasis-100);
+  z-index: 2;
+  gap: 1rem;
+  min-height: 200px;
+}
+
+.loading-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--ifm-color-emphasis-300);
+  border-top: 3px solid var(--ifm-color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.screenshot-loading span {
+  font-size: 14px;
+  color: var(--ifm-color-content-secondary);
+}
+
+/* Ошибка загрузки */
+.screenshot-error {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--ifm-color-emphasis-100);
+  z-index: 2;
+  min-height: 200px;
+  text-align: center;
+  padding: 2rem;
+}
+
+.error-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.screenshot-error p {
+  margin: 0 0 0.5rem 0;
+  color: var(--ifm-color-content);
+  font-weight: 500;
+}
+
+.screenshot-error small {
+  color: var(--ifm-color-content-secondary);
+  font-size: 12px;
+  word-break: break-all;
+}
+
+/* Иконка увеличения */
+.zoom-indicator {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px;
+  border-radius: var(--ifm-border-radius);
+  opacity: 0;
+  transition: all var(--ifm-transition-fast) ease;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.zoom-indicator svg {
+  display: block;
+}
+
+/* Аннотации */
+.screenshot-annotations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.annotation {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: auto;
+}
+
+.annotation-marker {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--ifm-color-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all var(--ifm-transition-fast) ease;
+}
+
+.annotation-marker:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.annotation-info .annotation-marker {
+  background: var(--ifm-color-info);
+}
+
+.annotation-warning .annotation-marker {
+  background: var(--ifm-color-warning);
+}
+
+.annotation-success .annotation-marker {
+  background: var(--ifm-color-success);
+}
+
+.annotation-danger .annotation-marker {
+  background: var(--ifm-color-danger);
+}
+
+/* Tooltip для аннотаций */
+.annotation-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 8px 12px;
+  border-radius: var(--ifm-border-radius);
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--ifm-transition-fast) ease;
+  z-index: 10;
+  margin-bottom: 8px;
+  max-width: 200px;
+  white-space: normal;
+}
+
+.annotation-tooltip:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.9);
+}
+
+.annotation:hover .annotation-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Контент изображения */
+.screenshot-content {
+  padding: 1.5rem;
+  background: var(--ifm-background-surface-color);
+}
+
+.screenshot-title {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--ifm-color-content);
+  line-height: 1.3;
+}
+
+.screenshot-description {
+  margin: 0;
+  color: var(--ifm-color-content-secondary);
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+/* Подпись */
+.screenshot-caption {
+  padding: 1rem 1.5rem;
+  background: var(--ifm-color-emphasis-100);
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  font-size: 13px;
+  color: var(--ifm-color-content-secondary);
+  text-align: center;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Модальное окно */
+.screenshot-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 2rem;
+  opacity: 0;
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  position: relative;
+  max-width: 95vw;
+  max-height: 95vh;
+  background: var(--ifm-background-surface-color);
+  border-radius: var(--ifm-border-radius-lg);
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all var(--ifm-transition-fast) ease;
+}
+
+.modal-close:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: scale(1.05);
+}
+
+.modal-image {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
+  display: block;
+}
+
+.modal-info {
+  padding: 1.5rem;
+  background: var(--ifm-background-surface-color);
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.modal-info h3 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--ifm-color-content);
+}
+
+.modal-info p {
+  margin: 0;
+  color: var(--ifm-color-content-secondary);
+  line-height: 1.5;
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+  .screenshot-container {
+    margin: 1rem 0;
+    border-radius: var(--ifm-border-radius);
+  }
+
+  .screenshot-content {
+    padding: 0.75rem;
+  }
+
+  .screenshot-title {
+    font-size: 1.125rem;
+  }
+
+  .annotation-marker {
+    width: 20px;
+    height: 20px;
+    font-size: 11px;
+  }
+
+  .modal-content {
+    max-width: 100vw;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+
+  .screenshot-modal {
+    padding: 0;
+  }
+}
+
+/* Стили для печати */
+@media print {
+  .screenshot-modal,
+  .zoom-indicator,
+  .annotation-tooltip {
+    display: none !important;
+  }
+
+  .screenshot-container {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .screenshot-image {
+    max-height: 400px;
+    object-fit: contain;
+  }
+}
