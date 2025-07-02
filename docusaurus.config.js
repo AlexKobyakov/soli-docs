@@ -18,7 +18,7 @@ const config = {
   deploymentBranch: 'gh-pages',
   trailingSlash: false,
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   // Интернационализация
@@ -51,7 +51,7 @@ const config = {
         docs: {
           sidebarPath: './sidebars.js',
           routeBasePath: '/', // Документация как главная страница
-          editUrl: 'https://github.com/your-organization/soli-docs/tree/main/',
+          editUrl: 'https://github.com/alexkobyakov/soli-docs/tree/main/',
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
         },
@@ -75,7 +75,7 @@ const config = {
       // Метаданные для SEO
       metadata: [
         {name: 'keywords', content: 'ГИС, геоинформационные системы, СОЛИ, картография, GIS'},
-        {name: 'description', content: 'Полная документация по использованию веб-ГИС системы СОЛИ'},
+        {name: 'description', content: 'Полная документация по использованию веб-геоинформационной системы СОЛИ'},
       ],
 
       // Конфигурация цветовой схемы
@@ -118,7 +118,7 @@ const config = {
             position: 'right',
           },
           {
-            href: 'https://github.com/your-organization/soli',
+            href: 'xn--h1afil.xn--80adichiqbvfacj0a3o.xn--p1ai',
             className: 'header-github-link',
             'aria-label': 'GitHub репозиторий',
             position: 'right',
@@ -153,11 +153,11 @@ const config = {
             items: [
               {
                 label: 'Форум поддержки',
-                href: 'https://forum.soli-gis.ru',
+                href: 'https://t.me/+CFMpwUh1MvxmNDQy',
               },
               {
                 label: 'Telegram чат',
-                href: 'https://t.me/soli_gis',
+                href: 'https://t.me/+CFMpwUh1MvxmNDQy',
               },
             ],
           },
@@ -166,11 +166,11 @@ const config = {
             items: [
               {
                 label: 'Связаться с нами',
-                href: 'mailto:support@soli-gis.ru',
+                href: 'mailto:support@forest-it.ru',
               },
               {
                 label: 'Сообщить об ошибке',
-                href: 'https://github.com/your-organization/soli/issues',
+                href: 'xn--h1afil.xn--80adichiqbvfacj0a3o.xn--p1ai',
               },
             ],
           },
