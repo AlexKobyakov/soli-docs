@@ -8,6 +8,9 @@ const sidebars = {
   mainSidebar: [
     // Введение
     'intro',
+
+    // Примеры и видео
+    'examples',
     
     // Быстрый старт
     {

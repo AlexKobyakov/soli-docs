@@ -1,0 +1,350 @@
+/* Стили для компонента VideoPlayer */
+
+.video-player-container {
+  margin: 2rem 0;
+  background: var(--ifm-background-surface-color);
+  border-radius: var(--ifm-border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--ifm-global-shadow-md);
+  transition: all var(--ifm-transition-fast) ease;
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.video-player-container:hover {
+  box-shadow: var(--ifm-global-shadow-tl);
+  transform: translateY(-2px);
+}
+
+/* Заголовок и описание */
+.video-header {
+  padding: 1.5rem 1.5rem 0 1.5rem;
+  background: var(--ifm-background-surface-color);
+}
+
+.video-title {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--ifm-color-content);
+  line-height: 1.3;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.video-title:before {
+  content: '🎥';
+  font-size: 1.125rem;
+}
+
+.video-description {
+  margin: 0;
+  color: var(--ifm-color-content-secondary);
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+/* Контейнер видео */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  background: var(--ifm-color-emphasis-100);
+  margin: 1.5rem;
+  border-radius: var(--ifm-border-radius);
+  overflow: hidden;
+}
+
+/* Iframe видео */
+.video-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: var(--ifm-border-radius);
+  opacity: 0;
+  transition: opacity var(--ifm-transition-fast) ease;
+}
+
+.video-iframe.loaded {
+  opacity: 1;
+}
+
+/* Индикатор загрузки */
+.video-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--ifm-color-emphasis-100);
+  z-index: 2;
+  gap: 1rem;
+}
+
+.video-loading .loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--ifm-color-emphasis-300);
+  border-top: 3px solid var(--ifm-color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.video-loading span {
+  font-size: 14px;
+  color: var(--ifm-color-content-secondary);
+  font-weight: 500;
+}
+
+/* Ошибка загрузки */
+.video-error {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--ifm-color-emphasis-100);
+  z-index: 2;
+  text-align: center;
+  padding: 2rem;
+}
+
+.video-error .error-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.video-error p {
+  margin: 0 0 0.5rem 0;
+  color: var(--ifm-color-content);
+  font-weight: 500;
+}
+
+.video-error small {
+  display: block;
+  color: var(--ifm-color-content-secondary);
+  font-size: 12px;
+  margin: 0.25rem 0;
+  word-break: break-all;
+}
+
+/* Бейджик платформы */
+.video-platform-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 3;
+  opacity: 0.8;
+  transition: opacity var(--ifm-transition-fast) ease;
+}
+
+.video-wrapper:hover .video-platform-badge {
+  opacity: 1;
+}
+
+.platform-youtube {
+  background: #ff0000;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.platform-rutube {
+  background: #000000;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Подпись под видео */
+.video-caption {
+  padding: 1rem 1.5rem;
+  background: var(--ifm-color-emphasis-100);
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  font-size: 13px;
+  color: var(--ifm-color-content-secondary);
+  text-align: center;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Дополнительная информация */
+.video-info {
+  padding: 0.75rem 1.5rem 1.5rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: var(--ifm-color-content-secondary);
+  background: var(--ifm-background-surface-color);
+}
+
+.video-source {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.video-start-time {
+  background: var(--ifm-color-emphasis-200);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+/* Специальные стили для разных платформ */
+.video-player-youtube {
+  border-left: 4px solid #ff0000;
+}
+
+.video-player-rutube {
+  border-left: 4px solid #000000;
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+  .video-player-container {
+    margin: 1.5rem 0;
+    border-radius: var(--ifm-border-radius);
+  }
+
+  .video-header {
+    padding: 1rem 1rem 0 1rem;
+  }
+
+  .video-wrapper {
+    margin: 1rem;
+  }
+
+  .video-title {
+    font-size: 1.125rem;
+  }
+
+  .video-info {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+    padding: 0.75rem 1rem 1rem 1rem;
+  }
+
+  .video-platform-badge {
+    top: 8px;
+    right: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-wrapper {
+    margin: 0.75rem;
+  }
+
+  .video-header {
+    padding: 0.75rem;
+  }
+
+  .video-info {
+    padding: 0.5rem 0.75rem 0.75rem 0.75rem;
+  }
+
+  .video-caption {
+    padding: 0.75rem;
+  }
+}
+
+/* Стили для темной темы */
+[data-theme='dark'] .platform-rutube {
+  background: #333333;
+}
+
+[data-theme='dark'] .video-error {
+  background: var(--ifm-color-emphasis-200);
+}
+
+/* Стили для печати */
+@media print {
+  .video-player-container {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+
+  .video-wrapper {
+    height: 200px !important;
+    padding-bottom: 0 !important;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .video-iframe {
+    display: none;
+  }
+
+  .video-wrapper:after {
+    content: 'Видео доступно в онлайн версии документации';
+    color: #666;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .video-platform-badge {
+    display: none;
+  }
+}
+
+/* Анимация для загрузки */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Улучшения доступности */
+@media (prefers-reduced-motion: reduce) {
+  .video-player-container,
+  .video-iframe,
+  .video-platform-badge {
+    transition: none;
+  }
+
+  .video-loading .loading-spinner {
+    animation: none;
+  }
+}
+
+/* Стили для высококонтрастного режима */
+@media (prefers-contrast: high) {
+  .video-player-container {
+    border-width: 2px;
+    border-color: var(--ifm-color-content);
+  }
+
+  .platform-youtube,
+  .platform-rutube {
+    border: 1px solid var(--ifm-color-content);
+  }
+}

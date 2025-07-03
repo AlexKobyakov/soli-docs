@@ -7,6 +7,7 @@ sidebar_position: 3
 Добро пожаловать в руководство по первому входу в веб-ГИС систему СОЛИ! В этом разделе вы узнаете, как войти в систему, настроить свой профиль и выполнить первоначальную настройку рабочего пространства.
 
 import Screenshot from '@site/src/components/Screenshot';
+import VideoPlayer from '@site/src/components/VideoPlayer';
 
 ## Доступ к системе
 
@@ -286,6 +287,32 @@ import Screenshot from '@site/src/components/Screenshot';
   ]}
   caption="Рис. 4. Создание первого проекта"
 />
+
+## Обучающие видео
+
+### Видеоурок: Первый вход в систему
+
+<VideoPlayer
+  src="dQw4w9WgXcQ"
+  platform="youtube"
+  title="Первый вход в систему СОЛИ"
+  description="Пошаговое видеоруководство по входу в систему и первоначальной настройке"
+  caption="Видеоурок по первому входу в систему СОЛИ"
+/>
+
+### Настройка профиля пользователя
+
+<VideoPlayer
+  src="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+  platform="youtube"
+  title="Настройка профиля пользователя"
+  description="Как правильно настроить свой профиль для эффективной работы"
+  startTime="45"
+  height="280px"
+  caption="Настройка профиля в системе СОЛИ"
+/>
+
+## Получение помощи
 
 ## Получение помощи
 

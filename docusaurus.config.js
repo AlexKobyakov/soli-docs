@@ -69,6 +69,18 @@ const config = {
     ],
   ],
 
+plugins: [
+  [
+    '@easyops-cn/docusaurus-search-local',
+    {
+      hashed: true,
+      language: ['ru', 'en'],
+      highlightSearchTermsOnTargetPage: true,
+      explicitSearchResultPath: true,
+    },
+  ],
+],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
