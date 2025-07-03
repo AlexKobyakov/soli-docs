@@ -97,47 +97,46 @@ plugins: [
         respectPrefersColorScheme: true,
       },
 
-      // Верхняя навигация
-      navbar: {
-        title: 'СОЛИ',
-        logo: {
-          alt: 'Логотип СОЛИ',
-          src: 'img/logo.svg',
-          srcDark: 'img/logo_dark.svg',
-          width: 32,
-          height: 32,
-        },
-        items: [
-          {
-            type: 'docSidebar',
-            sidebarId: 'mainSidebar',
-            position: 'left',
-            label: 'Документация',
-          },
-          {
-            type: 'docSidebar',
-            sidebarId: 'apiSidebar',
-            position: 'left',
-            label: 'API',
-          },
-          {
-            to: '/examples',
-            label: 'Примеры',
-            position: 'left',
-          },
-          {
-            type: 'localeDropdown',
-            position: 'right',
-          },
-          {
-            href: 'xn--h1afil.xn--80adichiqbvfacj0a3o.xn--p1ai',
-            className: 'header-github-link',
-            'aria-label': 'GitHub репозиторий',
-            position: 'right',
-          },
-        ],
-        hideOnScroll: true,
-      },
+// Верхняя навигация
+navbar: {
+  title: 'СОЛИ',
+  logo: {
+    alt: 'Логотип СОЛИ',
+    src: 'img/logo.svg',
+    srcDark: 'img/logo_dark.svg',
+    width: 32,
+    height: 32,
+  },
+  items: [
+    {
+      type: 'docSidebar',
+      sidebarId: 'mainSidebar',
+      position: 'left',
+      label: 'Документация',
+    },
+    {
+      to: '/api',
+      position: 'left',
+      label: 'API',
+    },
+    {
+      to: '/examples',
+      label: 'Примеры',
+      position: 'left',
+    },
+    {
+      type: 'localeDropdown',
+      position: 'right',
+    },
+    {
+      href: 'https://github.com/alexkobyakov/soli-docs',
+      className: 'header-github-link',
+      'aria-label': 'GitHub репозиторий',
+      position: 'right',
+    },
+  ],
+  hideOnScroll: true,
+},
 
       // Подвал сайта
       footer: {

@@ -271,24 +271,55 @@ tr:hover {
   text-decoration: none;
 }
 
-/* Адаптивные стили */
-@media (max-width: 996px) {
-  .navbar__item {
-    display: none;
-  }
-  
-  .navbar__toggle {
-    display: block;
-  }
-  
-  .markdown h1:first-child {
-    --ifm-h1-font-size: 2rem;
-  }
-}
+/* ИСПРАВЛЕННЫЕ АДАПТИВНЫЕ СТИЛИ */
 
+/* Адаптивная типографика и контейнеры */
 @media (max-width: 768px) {
   :root {
     --ifm-font-size-base: 14px;
+    --ifm-spacing-horizontal: 0.75rem;
+  }
+  
+  .navbar__brand {
+    font-size: 1.1rem;
+  }
+  
+  /* Меньше отступы в контейнере на мобильных */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .markdown h1:first-child {
+    --ifm-h1-font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .markdown h2 {
+    font-size: 1.5rem;
+  }
+  
+  .markdown h3 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar__brand {
+    font-size: 1rem;
+  }
+  
+  .navbar__logo {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Стили для основного заголовка на планшетах */
+@media (max-width: 996px) {
+  .markdown h1:first-child {
+    --ifm-h1-font-size: 2rem;
+    margin-bottom: 1.5rem;
   }
 }
 
